@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #e9ecef;
+  position: fixed;
+  top: 0;
+}
+
+.name {
+  margin-left: 10px;
+  font-size: 30px;
+  color: #ee6515;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+
+.cont {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.prop {
+  transition: all 0.2s ease;
+  /* cursor: pointer; */
+}
+
+.prop:hover {
+  box-shadow: 4px 4px 2px 2px #e9ecef;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.button {
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.prop:hover .button {
+  opacity: 1;
+}
+
+.desc {
+  width: 80%;
+  height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.point {
+  cursor: pointer;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none; /*chrome */
+}
+
+.scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
