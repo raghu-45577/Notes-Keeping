@@ -5,6 +5,7 @@ Modal.setAppElement("#root");
 
 function CreateNoteModal({ created, onclick }) {
   const [note, setNote] = useState({ title: "", description: "" });
+  let uid = localStorage.getItem("user");
 
   function inputHandler(e) {
     e.preventDefault();
@@ -13,8 +14,9 @@ function CreateNoteModal({ created, onclick }) {
 
   function saveHandler(e) {
     e.preventDefault();
-    NotesService.createNote(note).then((res) => {
-      console.log(res.data);
+    let id = uid.substring(0, uid.indexOf("@"));
+    NotesService.createNote(note, id).then((res) => {
+      console.log(id);
       onclick();
       window.location.reload();
     });

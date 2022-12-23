@@ -1,26 +1,37 @@
 import axios from "axios";
 
-const NOTES_BASE_URL = "http://localhost:8080/app/v1/notes";
+const NOTES_BASE_URL = "http://localhost:8080/app/v1";
 
 class NotesService {
-  getNotes() {
-    return axios.get(NOTES_BASE_URL);
+  addUser(user) {
+    return axios.post(NOTES_BASE_URL + "/user", user);
   }
 
-  createNote(note) {
-    return axios.post(NOTES_BASE_URL, note);
+  getUser(id) {
+    return axios.get(NOTES_BASE_URL + "/user/" + id);
+  }
+  getNotes(uid) {
+    return axios.get(NOTES_BASE_URL + "/user/" + uid + "/notes");
   }
 
-  updateNote(note, id) {
-    return axios.put(NOTES_BASE_URL + "/" + id, note);
+  createNote(note, uid) {
+    return axios.post(NOTES_BASE_URL + "/user/" + uid + "/notes", note);
   }
 
-  deleteNote(id) {
-    return axios.delete(NOTES_BASE_URL + "/" + id);
+  updateNote(note, uid, id) {
+    return axios.put(NOTES_BASE_URL + "/user/" + uid + "/notes/" + id, note);
   }
 
-  getNoteById(id) {
-    return axios.get(NOTES_BASE_URL + "/" + id);
+  deleteNote(id, uid) {
+    return axios.delete(NOTES_BASE_URL + "/user/" + uid + "/notes/" + id);
+  }
+
+  getNoteById(id, uid) {
+    return axios.get(NOTES_BASE_URL + "/user/" + uid + "/notes/" + id);
+  }
+
+  getNoteByTitle(title, uid) {
+    return axios.get(NOTES_BASE_URL + "/user/" + uid + "/notes/" + title);
   }
 }
 

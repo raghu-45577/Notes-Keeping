@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import LoginPage from "./components/LoginPage";
 import NotesList from "./components/NotesList";
 import CreateNoteModal from "./modals/CreateNoteModal";
 
@@ -9,8 +10,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<LoginPage />} />
         <Route
-          path="/"
+          path="/notes"
           element={[
             <NotesList key={3} />,
             <Header key={1} />,
@@ -18,7 +20,6 @@ function App() {
           ]}
         />
         <Route path="/newNote" element={<CreateNoteModal />} />
-        {/* <Route path="/notes" element={<NotesList />} /> */}
       </Routes>
     </BrowserRouter>
   );

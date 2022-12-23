@@ -5,13 +5,15 @@ Modal.setAppElement("#root");
 
 function ViewNoteModal({ view, onclick, nid }) {
   const [note, setNote] = useState({ title: "", description: "" });
+  let uid = localStorage.getItem("user");
 
   useEffect(() => {
-    NotesService.getNoteById(nid).then((res) => {
+    let id = uid.substring(0, uid.indexOf("@"));
+    NotesService.getNoteById(nid, id).then((res) => {
       setNote(res.data);
     });
     console.log(nid);
-  }, [nid]);
+  }, [nid, uid]);
 
   return (
     <div>

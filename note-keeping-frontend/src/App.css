@@ -106,3 +106,12 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.search {
+  outline: 0;
+  border-radius: 10px;
+  height: 45px;
+  margin-top: 60px;
+  width: 50%;
+  border: 1px solid black;
+}

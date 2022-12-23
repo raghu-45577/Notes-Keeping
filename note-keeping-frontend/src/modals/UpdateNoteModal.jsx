@@ -5,12 +5,14 @@ Modal.setAppElement("#root");
 
 function UpdateNoteModal({ update, onclick, nid }) {
   const [note, setNote] = useState({ title: "", description: "" });
+  let uid = localStorage.getItem("user");
 
   useEffect(() => {
-    NotesService.getNoteById(parseInt(nid)).then((res) => {
+    let id = uid.substring(0, uid.indexOf("@"));
+    NotesService.getNoteById(nid, id).then((res) => {
       setNote(res.data);
     });
-  }, [nid]);
+  }, [nid, uid]);
 
   function inputHandler(e) {
     e.preventDefault();
@@ -19,7 +21,9 @@ function UpdateNoteModal({ update, onclick, nid }) {
 
   function editHandler(e) {
     e.preventDefault();
-    NotesService.updateNote(note, nid).then((res) => {
+    let id = uid.substring(0, uid.indexOf("@"));
+    console.log(id);
+    NotesService.updateNote(note, id, nid).then((res) => {
       onclick();
       window.location.reload();
     });
